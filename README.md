@@ -1,5 +1,5 @@
-BigCommerce-Product-Page-Demo-Videos
-====================================
+BigCommerce Product Page Demo Videos Plugin
+===========================================
 
 BigCommerce Product Page Demo Videos with a Play/Stop button in the thumbnail image selector section below product image.
 by Andre Bulatov - iamandrebulatov - http://andrebulatov.com
@@ -7,8 +7,8 @@ by Andre Bulatov - iamandrebulatov - http://andrebulatov.com
 
 Installation instructions
 -------------------------
-#3b.  Product Page Videos
-3b.4 - Add 'div.productDemoVideo' HTML to bottom of Snippets/ProductThumbImage.html
+3b.1 - Product Page Videos
+3b.2 - Add 'div.productDemoVideo' HTML to bottom of Snippets/ProductThumbImage.html
 ```HTML
     <div class="productDemoVideo" class="%%GLOBAL_ProductId%%"></div>
 ```
@@ -223,3 +223,8 @@ $(document).ready(function(){
 
 </script>
 ```
+
+Create Videos Upload Folder
+---------------------------
+
+Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
