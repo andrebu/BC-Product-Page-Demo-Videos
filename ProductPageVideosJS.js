@@ -1,22 +1,16 @@
-$(document).ready(function(){
-
-
 /* 	Existance checker function */
 	$.fn.exists = function(callback) {
-	  var args = [].slice.call(arguments, 1);
-	
-	  if (this.length) {
-	    callback.call(this, args);
-	  }
-	
-	  return this;
+		var args = [].slice.call(arguments, 1);
+		if (this.length) {
+			callback.call(this, args);
+		}
+		return this;
 	};
-
 
 /* 	Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
 	$(function () {
 		$("span:contains('HasDemoVideo')").exists(function() {
-		  $(this).closest('.productAttributeRow').hide();
+			$(this).closest('.productAttributeRow').hide();
 			var ProductThumb = $('.ProductThumb');
 				ProductTinyImageList = $('.ProductTinyImageList ul');
 			ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
@@ -24,36 +18,20 @@ $(document).ready(function(){
 			});    
 		});
 
-
-
-
-
-        
-
-// Play/Stop button
-    if($('#videoDemoThumb, #videoDemoBtn').hasClass('videoPlaying')) { 
-	        console.log(this);
-
-        $(this).click(function() { 
-	        console.log(this);
-	        $('#videoDemoThumb, #videoDemoBtn').removeClass('videoPlaying');
-	        $('.ProductThumb').find('#productDemoVideo').hide().html('');
-	        });
-        
-        }
-        else {
-	        $(this).click(function() { //, #videoDemoBtn
-console.log(this);	        	
+	$(document).ready(function(){
+	
+/*	Play/Stop button click triggering functionality */
+		$('#videoDemoThumb, #videoDemoBtn').on('click', function() {
+		        var clicked = $('#videoDemoThumb, #videoDemoBtn');
+			if($(clicked).hasClass('videoPlaying')) {
+		        $(clicked).removeClass('videoPlaying');
+		        $('.ProductThumb').find('#productDemoVideo').hide().html('');
+		        }
+	        else {
 		        var ProductId = $('#productDemoVideo').attr('class'); 
-console.log(ProductId);
-				$('#videoDemoThumb, #videoDemoBtn').addClass('videoPlaying');
-			    $('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autobuffer loop muted autoplay><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
-			    $('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
-
-	        	});
-	        
-	        }
-
-
-
-});
+			$(clicked).addClass('videoPlaying');
+			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autobuffer loop muted autoplay><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
+			$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
+			}
+		});
+	});
