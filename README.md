@@ -195,7 +195,8 @@ The JavaScript/jQuery code necessary for the functionality
 	        else {
 		        var ProductId = $('#productDemoVideo').attr('class'); 
 			$(clicked).addClass('videoPlaying');
-			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
+			// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm">
+			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls" width="100%" height="100%"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
 			$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
 			var video = document.getElementById('demoVideo');
 			video.addEventListener('click',function(){
@@ -204,7 +205,7 @@ The JavaScript/jQuery code necessary for the functionality
 			}
 		});
 	});
-</script>
+	
 ```
 
 Create Videos Upload Folder
@@ -225,3 +226,11 @@ Resources
 6.  A solution proposed for iOS to fix so that playing video does not enter full screen mode but rather plays inline (in the end, this proposed code does not work reliably, or at all) - http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video
 7.  Similar to #6 above but for Android.  Suggests using custom JS for autoplay function and also some <video> tag markup standards that should allow video to play on ANdroid along iwth other browsers like Firefox and Safari. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
 8.  Similar to #6 and #7 above as in this thread, the ttempt was to make videos play inline rather than be forced into fullscreen mode.  The main suggestion is to use "webkit-playinline," but as elegant as this soltion is, it does not work. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+
+
+To Do
+-----
+
+1. Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video
+2. Add slow-motion control to the demo video
+3. Add Preview Image to <video> tag
