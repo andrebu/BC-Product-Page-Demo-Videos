@@ -211,3 +211,17 @@ Create Videos Upload Folder
 ---------------------------
 
 Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
+
+
+Resources
+---------
+
+###On HTML5 <video> tag for mobile (iOS and Android in particular)
+1.  On using javaScript play() to make it work on Android - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+2.  Similar to above #1. above. https://code.google.com/p/chromium/issues/detail?id=159336
+3.  On how autoplay does not work on Android Chrome - https://code.google.com/p/chromium/issues/detail?id=159336
+4.  Media formats supported by the HTML audio and video elements - https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats - mozilla.org
+5.  Creating a cross-browser video player - https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player - mozilla.org
+6.  A solution proposed for iOS to fix so that playing video does not enter full screen mode but rather plays inline (in the end, this proposed code does not work reliably, or at all) - http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video
+7.  Similar to #6 above but for Android.  Suggests using custom JS for autoplay function and also some <video> tag markup standards that should allow video to play on ANdroid along iwth other browsers like Firefox and Safari. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+8.  Similar to #6 and #7 above as in this thread, the ttempt was to make videos play inline rather than be forced into fullscreen mode.  The main suggestion is to use "webkit-playinline," but as elegant as this soltion is, it does not work. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
