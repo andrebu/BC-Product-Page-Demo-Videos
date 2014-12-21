@@ -30,8 +30,12 @@
 	        else {
 		        var ProductId = $('#productDemoVideo').attr('class'); 
 			$(clicked).addClass('videoPlaying');
-			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autobuffer loop muted autoplay><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
+			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
 			$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
+			var video = document.getElementById('demoVideo');
+			video.addEventListener('click',function(){
+				video.play();
+			},false);
 			}
 		});
 	});
