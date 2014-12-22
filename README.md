@@ -17,226 +17,37 @@ To turn off the lightbox on click logic and to make the thumbnails change on lci
 <!-- Updated sot hat click changes the image and thumbnail -->
 <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%">
 <!-- onclick="%%GLOBAL_TinyImageClickJavascript%%" onmouseover="%%GLOBAL_TinyImageOverJavascript%%" -->
-```
+```  
 
 
 Installation instructions
 -------------------------
-3b.1 - Product Page Videos
-3b.2 - Add 'div.productDemoVideo' HTML to bottom of Snippets/ProductThumbImage.html
+###Index of Installation instructions
+1. Add <!-- Product Page Videos --> CSS to stye.css
+2. Add ProductPageVideos.html Panel to WebDAV/dav/template/Panels
+3. Add %%Panel.ProductPageVideos%% to bottom of Snippets/ProductAddToCart.html
+4. Add HTML 'div.productDemoVideo' to bottom Snippets/ProductThumbImage.html
 ```HTML
     <div class="productDemoVideo" class="%%GLOBAL_ProductId%%"></div>
 ```
-
-3b.3 - Add <!-- Product Page Videos --> CSS
-```CSS
-/* Product Page Video CSS */
- #videoDemoBtn {
-    width: 70px;
-    height: 73px;
-    border-radius: 60px;
-    position: absolute;
-    cursor: pointer;
-    z-index: 90;
-    background-color: lightgray;
-    display: none;
-    clip: rect(auto, auto, auto, auto);
-}
-/*
-#videoDemoBtn.videoPlaying {
-}
-*/
- #videoDemoBtn .triangle {
-    width: 0px;
-    height: 0px;
-    left: 37px;
-    top: 27px;
-    position: absolute;
-    border-top: 8px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 16px solid #39B54A;
-    z-index: 1;
-    border-radius: 2px;
-    opacity: 0.5;
-}
-#videoDemoBtn .triangle {
-    left: 29px;
-    top: 22px;
-}
-#videoDemoBtn .triangle:after {
-    content:"Play";
-    position: absolute;
-    left: -23px;
-    top: 8px;
-    text-transform: uppercase;
-}
-#videoDemoBtn:hover .triangle {
-    opacity: 1;
-}
-#videoDemoBtn.videoPlaying .triangle {
-    border-top: 8px solid red;
-    border-bottom: 8px solid red;
-    border-left: 8px solid red;
-    border-right: 8px solid red;
-    left: 27px;
-    top: 23px;
-}
-#videoDemoBtn.videoPlaying .triangle:after {
-    content:"Stop";
-    left: -14px;
-}
-.ProductList li:hover #videoDemoBtn {
-    opacity: 1;
-}
-#productDemoVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* 	height: 100%;  */
-    /* 	display: none; */
-}
-#productDemoVideo video {
-    height: 100%;
-    width: 100%;
-}
-.ProductDetailsGrid .productAttributeList {
-    /* 	display: none; */
-}
-#videoDemoThumb {
-    cursor: pointer;
-    border: 1px solid #f0efee !important;
-    opacity: .75;
-}
-#videoDemoThumb .ProdVideoPlayBtn {
-    position: relative;
-    background-color: #39B54A;
-    width: 56px;
-    height: 73px;
-    display: block;
-    margin: 4px;
-}
-#videoDemoThumb .triangle {
-    width: 0px;
-    height: 0px;
-    left: 17px;
-    top: 8px;
-    position: absolute;
-    border-top: 10px solid transparent !important;
-    border-bottom: 12px solid transparent !important;
-    border-left: 23px solid white!important;
-    z-index: 1;
-    border-radius: 2px;
-}
-
-/* Play Video Button */
-#videoDemoThumb .triangle:after {
-    content:"Play Video";
-    position: absolute;
-    left: -31px;
-    top: 18px;
-    color: #fff;
-    text-transform: uppercase;
-}
-
-/* Stop Video Button */
-#videoDemoThumb.videoPlaying .ProdVideoPlayBtn {
-    background-color: #DD4B39;
-}
-#videoDemoThumb.videoPlaying .triangle {
-    border: 10px solid #fff !important;
-}
-#videoDemoThumb.videoPlaying .triangle:after {
-    content:"Stop Video";
-    left: -19px;
-}
-@media screen and (max-width: 767px) {
-    #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-        display: none;
-    }
-    /*
-	#videoDemoBtn {
-		display: block; 
-	}
-*/
-    #videoDemoBtn {
-        display: block;
-        right: 0px;
-        top: 0px;
-        opacity: 1;
-    }
-    #videoDemoBtn .triangle {
-        opacity: 1;
-    }
-}
+5. Create Option "Video", checkbox content "HasDemoVideo" on BigCommerce admin backend
+6. Create Videos folder in WebDAV/dav/content/Videos
+7. Add JS to hide "Video:HasDemoVideo" option 
+```HTML
+<script language="javascript" type="text/javascript">
+            $('.productAttributeList').find("span:contains('HasDemoVideo')").closest('.productAttributeRow').hide();
+</script>
 ```
+or make sure "$(this).closest('.productAttributeRow').hide();" is present in the ECF checker.
+8. 
 
-3b.4 - Add following JS to Panels/ProductDetails.html
+
+###Details of Installation instructions
+1. Add <!-- Product Page Videos --> [CSS](https://github.com/iamandrebulatov/BigCommerce-Product-Page-Demo-Videos/blob/master/ProductPageVideosCSS.css)
 
 
-
-The JavaScript/jQuery code necessary for the functionality
-----------------------------------------------------------
-```javascript
-/* 	Existance checker function */
-	$.fn.exists = function(callback) {
-		var args = [].slice.call(arguments, 1);
-		if (this.length) {
-			callback.call(this, args);
-		}
-		return this;
-	};
-
-/* 	Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
-	$(function () {
-		$("span:contains('HasDemoVideo')").exists(function() {
-			$(this).closest('.productAttributeRow').hide();
-			var ProductThumb = $('.ProductThumb');
-				ProductTinyImageList = $('.ProductTinyImageList ul');
-			ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
-			ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
-			});    
-		});
-
-	$(document).ready(function(){
-	
-/*	Play/Stop button click triggering functionality */
-
-$('.ProductTinyImageList ul li, #videoDemoThumb, #videoDemoBtn').on('click', function() {
-	        var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
-	        	allThumbLinks = $('.prodThumbImage');
-	        		        console.log(playStopBtn);
-            if($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
- 		        $(allThumbLinks).removeClass('videoPlaying');
- 		        $(playStopBtn).removeClass('videoPlaying');
-		        $('.ProductThumb').find('#productDemoVideo').hide().html('');               
-
-            } else if($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
-		        var ProductId = $('#productDemoVideo').attr('class'); 
-				$(allThumbLinks).addClass('videoPlaying');
-				$(playStopBtn).addClass('videoPlaying');
-				// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm">
-				$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls" width="100%" height="100%"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
-				$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
-				var video = document.getElementById('demoVideo');
-				video.addEventListener('click',function(){
-					video.play();
-				},false);      
-
-            } else /* if($(this).is(playStopBtn) || ) || */ {
-                console.log("NOTHING IS HAPPENING") 
-
-            }
-            
-         });
-
-     });
-```
-
-Create Videos Upload Folder
----------------------------
-
-Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
+6. Create Videos Upload Folder
+- Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
 
 
 Resources
