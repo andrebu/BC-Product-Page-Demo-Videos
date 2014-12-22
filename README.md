@@ -4,6 +4,21 @@ BigCommerce Product Page Demo Videos Plugin
 BigCommerce Product Page Demo Videos with a Play/Stop button in the thumbnail image selector section below product image.
 by Andre Bulatov - iamandrebulatov - http://andrebulatov.com
 
+***Important Note
+-----------------
+In Snippets/ProductTinyImage.html, the code for the TinyThumbImage list below th eproduct image on Product pages, must be altered so that a click on an image registers as "%%GLOBAL_TinyImageOverJavascript%%" instead of the BigCommerce default of 'onclick="%%GLOBAL_TinyImageClickJavascript%%"' which opens a lightbox onClick instead.
+```HTML
+<!-- Original BigCommerce thumbnail functionality -->
+<li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onmouseover="%%GLOBAL_TinyImageOverJavascript%%" onclick="%%GLOBAL_TinyImageClickJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%">
+```
+
+To turn off the lightbox on click logic and to make the thumbnails change on lcik instead of hover:
+```HTML
+<!-- Updated sot hat click changes the image and thumbnail -->
+<li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%">
+<!-- onclick="%%GLOBAL_TinyImageClickJavascript%%" onmouseover="%%GLOBAL_TinyImageOverJavascript%%" -->
+```
+
 
 Installation instructions
 -------------------------
@@ -241,7 +256,7 @@ Resources
 To Do
 -----
 
-~~1. Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video~~
+1. ~~Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video~~
 2. Add slow-motion control to the demo video
 3. Add Preview Image to <video> tag
 4. Change CSS on mobile button to show "SHOW VIDEO" and "HIDE VIDEO"
