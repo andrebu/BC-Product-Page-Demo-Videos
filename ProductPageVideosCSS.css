@@ -1,21 +1,20 @@
-
 /* Product Page Video CSS */
- #videoDemoBtn {
+#videoDemoBtn {
     width: 70px;
     height: 73px;
     border-radius: 60px;
     position: absolute;
     cursor: pointer;
     z-index: 90;
-    background-color: lightgray;
     display: none;
     clip: rect(auto, auto, auto, auto);
+/*     background-color: lightgray; */
+	background-color: #39B54A;
 }
-/*
 #videoDemoBtn.videoPlaying {
+	background-color: #e53b2c;
 }
-*/
- #videoDemoBtn .triangle {
+#videoDemoBtn .triangle {
     width: 0px;
     height: 0px;
     left: 37px;
@@ -26,33 +25,32 @@
     border-left: 16px solid #39B54A;
     z-index: 1;
     border-radius: 2px;
-    opacity: 0.5;
+/*     opacity: 0.5; */
 }
 #videoDemoBtn .triangle {
     left: 29px;
     top: 22px;
 }
 #videoDemoBtn .triangle:after {
-    content:"Play";
-    position: absolute;
-    left: -23px;
-    top: 8px;
-    text-transform: uppercase;
+	content: "Show Video";
+	position: absolute;
+	left: -28px;
+	top: 12px;
+	text-transform: uppercase;
 }
+/*
 #videoDemoBtn:hover .triangle {
     opacity: 1;
 }
+*/
 #videoDemoBtn.videoPlaying .triangle {
-    border-top: 8px solid red;
-    border-bottom: 8px solid red;
-    border-left: 8px solid red;
-    border-right: 8px solid red;
-    left: 27px;
-    top: 23px;
+	border: 8px solid #fff;
+	left: 28px;
+	top: 12px; 
 }
 #videoDemoBtn.videoPlaying .triangle:after {
-    content:"Stop";
-    left: -14px;
+	content: "Hide Video";
+	left: -19px;
 }
 .ProductList li:hover #videoDemoBtn {
     opacity: 1;
@@ -120,21 +118,30 @@
     left: -19px;
 }
 @media screen and (max-width: 767px) {
-    #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-        display: none;
-    }
+	#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
+		display: none;
+	}
     /*
 	#videoDemoBtn {
 		display: block; 
 	}
 */
-    #videoDemoBtn {
-        display: block;
-        right: 0px;
-        top: 0px;
-        opacity: 1;
-    }
-    #videoDemoBtn .triangle {
-        opacity: 1;
-    }
+	#videoDemoBtn {
+		display: block;
+		right: 0px;
+		top: 0px;
+		opacity: 1;
+	}
+/*
+	#videoDemoBtn .triangle {
+		opacity: 1;
+	}
+*/
+	#videoDemoBtn .triangle {
+		border-left: 16px solid #fff;
+		color: #fff;
+		left: 29px;
+		top: 12px;
+	}
+
 }
