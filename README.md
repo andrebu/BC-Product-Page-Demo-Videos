@@ -186,26 +186,36 @@ The JavaScript/jQuery code necessary for the functionality
 	$(document).ready(function(){
 	
 /*	Play/Stop button click triggering functionality */
-		$('#videoDemoThumb, #videoDemoBtn').on('click', function() {
-		        var clicked = $('#videoDemoThumb, #videoDemoBtn');
-			if($(clicked).hasClass('videoPlaying')) {
-		        $(clicked).removeClass('videoPlaying');
-		        $('.ProductThumb').find('#productDemoVideo').hide().html('');
-		        }
-	        else {
+
+$('.ProductTinyImageList ul li, #videoDemoThumb, #videoDemoBtn').on('click', function() {
+	        var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
+	        	allThumbLinks = $('.prodThumbImage');
+	        		        console.log(playStopBtn);
+            if($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
+ 		        $(allThumbLinks).removeClass('videoPlaying');
+ 		        $(playStopBtn).removeClass('videoPlaying');
+		        $('.ProductThumb').find('#productDemoVideo').hide().html('');               
+
+            } else if($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
 		        var ProductId = $('#productDemoVideo').attr('class'); 
-			$(clicked).addClass('videoPlaying');
-			// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm">
-			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls" width="100%" height="100%"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
-			$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
-			var video = document.getElementById('demoVideo');
-			video.addEventListener('click',function(){
-				video.play();
-			},false);
-			}
-		});
-	});
-	
+				$(allThumbLinks).addClass('videoPlaying');
+				$(playStopBtn).addClass('videoPlaying');
+				// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm">
+				$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls" width="100%" height="100%"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
+				$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
+				var video = document.getElementById('demoVideo');
+				video.addEventListener('click',function(){
+					video.play();
+				},false);      
+
+            } else /* if($(this).is(playStopBtn) || ) || */ {
+                console.log("NOTHING IS HAPPENING") 
+
+            }
+            
+         });
+
+     });
 ```
 
 Create Videos Upload Folder
@@ -231,6 +241,7 @@ Resources
 To Do
 -----
 
-1. Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video
+~~1. Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video~~
 2. Add slow-motion control to the demo video
 3. Add Preview Image to <video> tag
+4. Change CSS on mobile button to show "SHOW VIDEO" and "HIDE VIDEO"
