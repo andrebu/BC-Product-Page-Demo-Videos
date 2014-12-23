@@ -17,19 +17,16 @@
 #videoDemoBtn .triangle {
     width: 0px;
     height: 0px;
-    left: 37px;
-    top: 27px;
+    left: 28px;
+	top: 12px;
     position: absolute;
     border-top: 8px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 16px solid #39B54A;
+	border-left: 16px solid #fff;
     z-index: 1;
     border-radius: 2px;
 /*     opacity: 0.5; */
-}
-#videoDemoBtn .triangle {
-    left: 29px;
-    top: 22px;
+	color: #fff;
 }
 #videoDemoBtn .triangle:after {
 	content: "Show Video";
@@ -45,12 +42,12 @@
 */
 #videoDemoBtn.videoPlaying .triangle {
 	border: 8px solid #fff;
-	left: 28px;
+	left: 26px;
 	top: 12px; 
 }
 #videoDemoBtn.videoPlaying .triangle:after {
 	content: "Hide Video";
-	left: -19px;
+	left: -18px;
 }
 .ProductList li:hover #videoDemoBtn {
     opacity: 1;
@@ -118,30 +115,32 @@
     left: -19px;
 }
 @media screen and (max-width: 767px) {
-	#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-		display: none;
-	}
+    #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
+        display: none;
+    }
     /*
 	#videoDemoBtn {
 		display: block; 
 	}
 */
-	#videoDemoBtn {
-		display: block;
-		right: 0px;
-		top: 0px;
-		opacity: 1;
-	}
+    #videoDemoBtn {
+        display: block;
+        right: 0px;
+        top: 0px;
+        opacity: 1;
+    }
 /*
-	#videoDemoBtn .triangle {
-		opacity: 1;
-	}
+    #videoDemoBtn .triangle {
+        opacity: 1;
+    }
 */
+/*
 	#videoDemoBtn .triangle {
 		border-left: 16px solid #fff;
 		color: #fff;
 		left: 29px;
 		top: 12px;
 	}
+*/
 
 }
