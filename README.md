@@ -27,9 +27,11 @@ Installation instructions
 2. Add ProductPageVideos.html Panel to WebDAV/dav/template/Panels
 3. Add %%Panel.ProductPageVideos%% to bottom of Snippets/ProductAddToCart.html
 4. Add HTML 'div.productDemoVideo' to bottom Snippets/ProductThumbImage.html
+
 ```HTML
     <div class="productDemoVideo" class="%%GLOBAL_ProductId%%"></div>
 ```
+
 5. Create Option "Video", checkbox content "HasDemoVideo" on BigCommerce admin backend
 6. Create Videos folder in WebDAV/dav/content/Videos
 7. Add JS to hide "Video:HasDemoVideo" option 
@@ -39,6 +41,7 @@ Installation instructions
 </script>
 ```
 or make sure "$(this).closest('.productAttributeRow').hide();" is present in the ECF checker.
+
 8. Add 'class="prodThumbImage"' to <li> tag in Snippets/ProductTinyImage.html.  Example:
 
 > <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%" class="prodThumbImage">
