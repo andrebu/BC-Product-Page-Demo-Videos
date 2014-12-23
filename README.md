@@ -32,7 +32,7 @@ Installation instructions
 7. Add JS to hide "Video:HasDemoVideo" option ```HTML <script language="javascript" type="text/javascript"> $('.productAttributeList').find("span:contains('HasDemoVideo')").closest('.productAttributeRow').hide(); </script> ``` or make sure "$(this).closest('.productAttributeRow').hide();" is present in the ECF checker.
 8. Add 'class="prodThumbImage"' to "li" tag in Snippets/ProductTinyImage.html.  Example:
 
-         > ```HTML 
+          ```HTML 
          <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%" class="prodThumbImage">
          ```
 
