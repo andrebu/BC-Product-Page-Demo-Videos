@@ -39,7 +39,10 @@ Installation instructions
 </script>
 ```
 or make sure "$(this).closest('.productAttributeRow').hide();" is present in the ECF checker.
-8. 
+8. Add 'class="prodThumbImage"' to <li> tag in Snippets/ProductTinyImage.html.  Example:
+
+> <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%" class="prodThumbImage">
+
 
 
 ###Details of Installation instructions
