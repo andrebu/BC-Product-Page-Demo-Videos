@@ -6,22 +6,24 @@ by Andre Bulatov - iamandrebulatov - http://andrebulatov.com
 
 ***Important Note
 -----------------
-In Snippets/ProductTinyImage.html, the code for the TinyThumbImage list below th eproduct image on Product pages, must be altered so that a click on an image registers as "%%GLOBAL_TinyImageOverJavascript%%" instead of the BigCommerce default of 'onclick="%%GLOBAL_TinyImageClickJavascript%%"' which opens a lightbox onClick instead.
+In Snippets/ProductTinyImage.html, the code for the TinyThumbImage list below the product image on Product pages, must be altered so that a click on an image registers as "%%GLOBAL_TinyImageOverJavascript%%" instead of the BigCommerce default of 'onclick="%%GLOBAL_TinyImageClickJavascript%%"' which opens a lightbox onClick instead.
 ```HTML
 <!-- Original BigCommerce thumbnail functionality -->
 <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onmouseover="%%GLOBAL_TinyImageOverJavascript%%" onclick="%%GLOBAL_TinyImageClickJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%">
 ```
 
-To turn off the lightbox on click logic and to make the thumbnails change on lcik instead of hover:
+To turn off the lightbox onClick logic and to make the thumbnails change on click instead of hover, change the code to be as follows:
 ```HTML
-<!-- Updated sot hat click changes the image and thumbnail -->
+<!-- Updated so that a "click" changes the image and thumbnail -->
 <li style = "height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;" onclick="%%GLOBAL_TinyImageOverJavascript%%" id="TinyImageBox_%%GLOBAL_ProductThumbIndex%%">
-<!-- onclick="%%GLOBAL_TinyImageClickJavascript%%" onmouseover="%%GLOBAL_TinyImageOverJavascript%%" -->
 ```  
 
 
 Installation instructions
 -------------------------
+
+> I have since drstically changed the whole widget and the installation instructions have changed as well, however, I have not yet updated these instructions so be careful as they are probably no longer correct.  If you can't wait until I update and you need to know how to install this, just email me at contact@andrebulatov.com.
+
 ###Index of Installation instructions
 1. Add <!-- Product Page Videos --> CSS to stye.css
 2. Add ProductPageVideos.html Panel to WebDAV/dav/template/Panels
