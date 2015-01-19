@@ -1,4 +1,6 @@
 <script language="javascript" type="text/javascript">
+$(document).ready(function(){	
+
 /* 	Existance checker function */
 	$.fn.exists = function(callback) {
 		var args = [].slice.call(arguments, 1);
@@ -7,6 +9,7 @@
 		}
 		return this;
 	};
+
 /* 	Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
 	$(function () {
 		$("span:contains('HasDemoVideo')").exists(function() {
@@ -18,7 +21,6 @@
 			});    
 		});
 
-$(document).ready(function(){	
 /*	Play/Stop button click triggering functionality */
 	$('.ProductTinyImageList ul, #videoDemoThumb, #videoDemoBtn').on('click', 'li', function() {
         var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
@@ -26,18 +28,22 @@ $(document).ready(function(){
             if($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
  		        $(allThumbLinks).removeClass('videoPlaying');
  		        $(playStopBtn).removeClass('videoPlaying');
-		        $('.ProductThumb').find('#productDemoVideo').hide().html('');               
+		        $('#productDemoVideo').hide();               
             } else if($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
-		        var productNumber = $('#productDemoVideo').attr('class'); 
-		        	videoTagCode = '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/'+productNumber+'.jpg">'+
-			                		'<source src="/content/videos/'+productNumber+'.mp4">'+
-			                		'<source src="/content/videos/'+productNumber+'.ogv" type="video/ogg">'+
-			                		'<p>Your browser does not support this video.  Please upgrade your browser!</p>'+
-			                	'</video>'
+/* Add video container */
+    var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value'); 
+    	videoContainer = '<div id="productDemoVideo">'+
+    					'<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/'+productNumber+'.jpg">'+
+                		'<source src="/content/videos/'+productNumber+'.mp4">'+
+                		'<source src="/content/videos/'+productNumber+'.ogv" type="video/ogg">'+
+                		'<p>Your browser does not support this video.  Please upgrade your browser!</p>'+
+                		'</video>'+
+                		'</div>';
+	$('.ProductThumbImage').append(videoContainer);
+	$('#productDemoVideo').hide();
 				$(allThumbLinks).addClass('videoPlaying');
 				$(playStopBtn).addClass('videoPlaying');
-				// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+productNumber+'.webm" type="video/webm">
-				$('.ProductThumb').find('#productDemoVideo').show().html(videoTagCode);
+				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
 /*
 				var video = document.getElementById('demoVideo');
