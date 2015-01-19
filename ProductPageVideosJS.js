@@ -1,3 +1,5 @@
+$(document).ready(function(){	
+
 /* 	Existance checker function */
 	$.fn.exists = function(callback) {
 		var args = [].slice.call(arguments, 1);
@@ -18,25 +20,39 @@
 			});    
 		});
 
-	$(document).ready(function(){
-	
 /*	Play/Stop button click triggering functionality */
-		$('#videoDemoThumb, #videoDemoBtn').on('click', function() {
-		        var clicked = $('#videoDemoThumb, #videoDemoBtn');
-			if($(clicked).hasClass('videoPlaying')) {
-		        $(clicked).removeClass('videoPlaying');
-		        $('.ProductThumb').find('#productDemoVideo').hide().html('');
-		        }
-	        else {
-		        var ProductId = $('#productDemoVideo').attr('class'); 
-			$(clicked).addClass('videoPlaying');
-			// <source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.webm" type="video/webm">
-			$('.ProductThumb').find('#productDemoVideo').show().html('<video id="demoVideo" class="video" preload="auto" autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted" controls="controls" width="100%" height="100%" poster="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.jpg"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.mp4"><source src="https://store-mixi7d.mybigcommerce.com/content/videos/'+ProductId+'.ogv" type="video/ogg"><p>Your browser does not support this video.  Please upgrade your browser!</p></video>');
-			$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
-			var video = document.getElementById('demoVideo');
-			video.addEventListener('click',function(){
-				video.play();
-			},false);
-			}
-		});
-	});
+	$('.ProductTinyImageList ul, #videoDemoThumb, #videoDemoBtn').on('click', 'li', function() {
+        var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
+        	allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
+            if($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
+ 		        $(allThumbLinks).removeClass('videoPlaying');
+ 		        $(playStopBtn).removeClass('videoPlaying');
+		        $('#productDemoVideo').hide();               
+            } else if($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
+				/* Add video container START */
+			    var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value'); 
+			    	videoContainer = '<div id="productDemoVideo">'+
+			    					'<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/'+productNumber+'.jpg">'+
+			                		'<source src="/content/videos/'+productNumber+'.mp4">'+
+			                		'<source src="/content/videos/'+productNumber+'.ogv" type="video/ogg">'+
+			                		'<p>Your browser does not support this video.  Please upgrade your browser!</p>'+
+			                		'</video>'+
+			                		'</div>';
+				$('.ProductThumbImage').append(videoContainer);
+				$('#productDemoVideo').hide();
+				/* Add video container END */
+				$(allThumbLinks).addClass('videoPlaying');
+				$(playStopBtn).addClass('videoPlaying');
+				$('#productDemoVideo').show();
+				$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
+/*
+				var video = document.getElementById('demoVideo');
+				video.addEventListener('click',function(){
+					video.play();
+				},false);      
+*/
+            } else /* if($(this).is(playStopBtn) || ) || */ {
+                console.log("NOTHING IS HAPPENING") 
+            }
+         });
+     });
