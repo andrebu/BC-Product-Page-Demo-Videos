@@ -30,17 +30,18 @@ $(document).ready(function(){
  		        $(playStopBtn).removeClass('videoPlaying');
 		        $('#productDemoVideo').hide();               
             } else if($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
-/* Add video container */
-    var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value'); 
-    	videoContainer = '<div id="productDemoVideo">'+
-    					'<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/'+productNumber+'.jpg">'+
-                		'<source src="/content/videos/'+productNumber+'.mp4">'+
-                		'<source src="/content/videos/'+productNumber+'.ogv" type="video/ogg">'+
-                		'<p>Your browser does not support this video.  Please upgrade your browser!</p>'+
-                		'</video>'+
-                		'</div>';
-	$('.ProductThumbImage').append(videoContainer);
-	$('#productDemoVideo').hide();
+				/* Add video container START */
+			    var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value'); 
+			    	videoContainer = '<div id="productDemoVideo">'+
+			    					'<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/'+productNumber+'.jpg">'+
+			                		'<source src="/content/videos/'+productNumber+'.mp4">'+
+			                		'<source src="/content/videos/'+productNumber+'.ogv" type="video/ogg">'+
+			                		'<p>Your browser does not support this video.  Please upgrade your browser!</p>'+
+			                		'</video>'+
+			                		'</div>';
+				$('.ProductThumbImage').append(videoContainer);
+				$('#productDemoVideo').hide();
+				/* Add video container END */
 				$(allThumbLinks).addClass('videoPlaying');
 				$(playStopBtn).addClass('videoPlaying');
 				$('#productDemoVideo').show();
