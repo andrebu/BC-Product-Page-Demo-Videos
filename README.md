@@ -45,6 +45,7 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
   + Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
   + When you upload videos, add an .mp4 version, as well as an .ogv version for playback on all browsers
   + Name the videos by the product ID.  The product ID can be found by ... ?  
+
 4. Add <!-- Product Page Videos --> CSS to stye.css (this step will soon be made unnecessary)
 
 
