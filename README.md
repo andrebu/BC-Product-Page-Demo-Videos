@@ -40,7 +40,7 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
     </body>
 </html>
 ```
-![BigCommerce Product Page Demo Videos Installation Example](http://andrebulatov.com/wp-content/uploads/Screen-Shot-2015-01-19-at-6.36.16-PM.png "BigCommerce Product Page Demo Videos Installation Example")
+![BigCommerce Product Page Demo Videos Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Product-Page-Demo-Videos/master/ProductPageVideosInstallation-Screen%20Shot%202015-01-19%20at%206.36.16%20PM.png "BigCommerce Product Page Demo Videos Installation Example")
 3. Create Videos Upload Folder
   + Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
   + When you upload videos, add an .mp4 version, as well as an .ogv version for playback on all browsers
