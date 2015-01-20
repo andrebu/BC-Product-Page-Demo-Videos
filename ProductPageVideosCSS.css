@@ -5,7 +5,7 @@
     border-radius: 60px;
     position: absolute;
     cursor: pointer;
-    z-index: 90;
+    z-index: 13;
     display: none;
     clip: rect(auto, auto, auto, auto);
 /*     background-color: lightgray; */
