@@ -23,12 +23,11 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
 
 > These are the latest instructions and are up to date.  I will update them as the widget is improved.
 
-1. Add <!-- Product Page Videos --> CSS to stye.css (this step will soon be made unnecessary)
-2. Add **ProductPageVideos.html Panel file** to your folder in WebDAV/dav/template/Panels  
+1. Add **ProductPageVideos.html Panel file** to your folder in WebDAV/dav/template/Panels  
   1. To access your WebDAV panel, BigCommerce gives you instructions in your Admin Panel.  
   2. Click "Design" in the top right corner of your store admin panel.  
   3. Then click "WebDAV" in the "Current Theme" section and follow the instructions
-3. Add %%Panel.ProductPageVideos%% to bottom of Panels/product.html
+2. Add %%Panel.ProductPageVideos%% to bottom of Panels/product.html
   + Example:
 ```HTML
         </div>
@@ -42,22 +41,12 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
 </html>
 ```
 ![BigCommerce Product Page Demo Videos Installation Example](http://andrebulatov.com/wp-content/uploads/Screen-Shot-2015-01-19-at-6.36.16-PM.png "BigCommerce Product Page Demo Videos Installation Example")
-4. Create Videos Upload Folder
+3. Create Videos Upload Folder
   + Create a folder for uploading the product demo videos in WebDAV /dav/Contents/Videos/
   + When you upload videos, add an .mp4 version, as well as an .ogv version for playback on all browsers
-  + Name the videos by the product ID.  The product ID can be found by ... ?
+  + Name the videos by the product ID.  The product ID can be found by ... ?  
+4. Add <!-- Product Page Videos --> CSS to stye.css (this step will soon be made unnecessary)
 
-
-To Do
------
-
-1. ~~Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video~~
-2. ~~Add slow-motion control to the demo video~~
-3. ~~Add Preview Image to <video> tag~~
-4. ~~Change CSS on mobile button to show "SHOW VIDEO" and "HIDE VIDEO"~~
-5. ~~Improve AJAX~~
-6. ~~Integrate HTML into JS~~
-7. Integrate CSS into JS
 
 
 ## Using
@@ -83,7 +72,34 @@ To Do
 The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or [GratiPay](//gratipay.com) if you haven't already and donate just $1 a week. That is roughly a cup of coffee per month. Also, please do donate to many other amazing open source projects!
 
 [![ChangeTip donate button](http://andrebulatov.com/wp-content/uploads/tipme_button.png)](//www.changetip.com/tipme/andre.bulatov/ "Donate once-off to this project using ChangeTip")
-[![GratiPay donate button](http://andrebulatov.com/wp-content/uploads/gratipay-button.png)](//www.gratipay.com/andrebulatov/ "Donate once-off to this project using GratiPay")
+[![GratiPay donate button](http://andrebulatov.com/wp-content/uploads/gratipay-button.png)](//www.gratipay.com/andrebulatov/ "Donate once-off to this project using GratiPay")  
+
+
+##To Do
+
+1. ~~Change logic/functionality of Play/Stop button so that Play button starts video, but any link in thumbnail view stops video~~
+2. ~~Add slow-motion control to the demo video~~
+3. ~~Add Preview Image to <video> tag~~
+4. ~~Change CSS on mobile button to show "SHOW VIDEO" and "HIDE VIDEO"~~
+5. ~~Improve AJAX~~
+6. ~~Integrate HTML into JS~~
+7. Integrate CSS into JS
+
+
+
+##Resources
+
+###On HTML5 <video> tag for mobile (iOS and Android in particular)
+1.  On using javaScript play() to make it work on Android - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+2.  Similar to above #1. above. https://code.google.com/p/chromium/issues/detail?id=159336
+3.  On how autoplay does not work on Android Chrome - https://code.google.com/p/chromium/issues/detail?id=159336
+4.  Media formats supported by the HTML audio and video elements - https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats - mozilla.org
+5.  Creating a cross-browser video player - https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player - mozilla.org
+6.  A solution proposed for iOS to fix so that playing video does not enter full screen mode but rather plays inline (in the end, this proposed code does not work reliably, or at all) - http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video
+7.  Similar to #6 above but for Android.  Suggests using custom JS for autoplay function and also some <video> tag markup standards that should allow video to play on ANdroid along iwth other browsers like Firefox and Safari. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+8.  Similar to #6 and #7 above as in this thread, the ttempt was to make videos play inline rather than be forced into fullscreen mode.  The main suggestion is to use "webkit-playinline," but as elegant as this soltion is, it does not work. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+
+
 
 
 ## License
