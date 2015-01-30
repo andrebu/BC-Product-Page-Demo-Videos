@@ -112,8 +112,14 @@ $(document).ready(function(){
 		    #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {\
 		        display: none;\
 		    }\
+		    #videoDemoBtn {\
+		        display: block;\
+		        right: 0px;\
+		        top: 0px;\
+		        opacity: 1;\
+		    }\
 		}\
-		</style>')
+    	</style>')
 		.appendTo('head');
 
 /* 	Existance checker function */
@@ -132,12 +138,13 @@ $(document).ready(function(){
 			var ProductThumb = $('.ProductThumb');
 				ProductTinyImageList = $('.ProductTinyImageList ul');
 			ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
+//			ProductTinyImageList.append('<li id="videoDemoBtn" class=""><div class="triangle"></div></li>');
 			ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
 			});    
 		});
 
 /*	Play/Stop button click triggering functionality */
-	$('.ProductTinyImageList ul, #videoDemoThumb, #videoDemoBtn').on('click', 'li', function() {
+	$('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage', function() {
         var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
         	allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
             if($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
@@ -161,12 +168,6 @@ $(document).ready(function(){
 				$(playStopBtn).addClass('videoPlaying');
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height()+'px');
-/*
-				var video = document.getElementById('demoVideo');
-				video.addEventListener('click',function(){
-					video.play();
-				},false);      
-*/
             } else /* if($(this).is(playStopBtn) || ) || */ {
                 console.log("NOTHING IS HAPPENING") 
             }
