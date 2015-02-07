@@ -92,7 +92,9 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 4. ~~Change CSS on mobile button to show "SHOW VIDEO" and "HIDE VIDEO"~~
 5. ~~Improve AJAX~~
 6. ~~Integrate HTML into JS~~
-7. Integrate CSS into JS
+7. ~~Integrate CSS into JS~~
+8. Write post about plugin
+9. Appify
 
 
 
