@@ -144,7 +144,7 @@
         });
 
         /*	Play/Stop button click triggering functionality */
-        $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage', function() {
+        $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage, .ProductTinyImageList li', function() {
             var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
             allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
             if ($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
@@ -161,7 +161,7 @@
                     '<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
                     '</video>' +
                     '</div>';
-                $('.ProductThumbImage').append(videoContainer);
+                $('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
                 $('#productDemoVideo').hide();
                 /* Add video container END */
                 $(allThumbLinks).addClass('videoPlaying');
