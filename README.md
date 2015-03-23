@@ -27,7 +27,7 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
   1. To access your WebDAV panel, BigCommerce gives you instructions in your Admin Panel.  
   2. Click "Design" in the top right corner of your store admin panel.  
   3. Then click "WebDAV" in the "Current Theme" section and follow the instructions
-2. Add %%Panel.ProductPageVideos%% to bottom of Panels/product.html
+2. Add **%%Panel.ProductPageVideos%%** reference to bottom of Panels/product.html
   + Example:
 ```HTML
         </div>
