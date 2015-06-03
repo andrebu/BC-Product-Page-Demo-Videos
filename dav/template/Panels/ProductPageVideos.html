@@ -1,6 +1,5 @@
 <script type="text/javascript">
 // Product Page Demo Videos
-    /* Add CSS to <head> */
     $('<style type="text/css"> \
     /* Product Page Video CSS */\
     #videoDemoBtn {\
@@ -65,7 +64,6 @@
     #videoDemoThumb {\
         cursor: pointer;\
         border: 1px solid #f0efee !important;\
-        /*opacity: .75;*/\
     }\
     #videoDemoThumb .ProdVideoPlayBtn {\
         position: relative;\
@@ -165,7 +163,7 @@
 	            /* Add video container START */
 	            var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
 	            var videoContainer = '<div id="productDemoVideo">' +
-	                '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/videos/' + productNumber + '.jpg">' +
+	                '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/images/loading-running-cat-dankstop-whitebg.gif">' +
 	                '<source src="/content/videos/' + productNumber + '.mp4">' +
 	                '<source src="/content/videos/' + productNumber + '.ogv" type="video/ogg">' +
 	                '<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
