@@ -185,14 +185,18 @@
 			'</div>';
         var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
         var allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
+			var selectedThumb = $('.magictoolbox-li a.mt-active-selector');
         function playDemoVideo() {
+			$('.magictoolbox-li a').removeClass('mt-active-selector');
 			$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 			$('#productDemoVideo').hide();
 			$(playStopBtns).addClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').show();
 			$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
         }
-        function stopDemoVideo() {
+        function stopDemoVideo(selectedThumb) {
+	        console.log(selectedThumb);
+			selectedThumb.addClass('mt-active-selector');
 			$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').remove();
         }
@@ -201,10 +205,11 @@
 	    });
 	    $('#videoDemoThumb, #videoDemoBtn').on('click', function(e) {
 			e.stopPropagation();
-			var selectedThumb = $('.magictoolbox-li a.mt-active-selector');
-			$('.magictoolbox-li a').removeClass('mt-active-selector');
+	        console.log(selectedThumb);
+			selectedThumb = $('.magictoolbox-li a.mt-active-selector');
+	        console.log(selectedThumb);
 			if ($('#videoDemoThumb.videoPlaying')[0]) {
-	            stopDemoVideo();
+	            stopDemoVideo(selectedThumb);
 			} else {
 				playDemoVideo();
 			}
