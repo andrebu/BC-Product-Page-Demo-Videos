@@ -189,23 +189,12 @@
 			$(playStopBtns).removeClass('videoPlaying');
 			$('#productDemoVideo').remove();
         }
-		$('.ProductThumb').on('click', 'a', function(e) {
+	    $('.ProductThumb').on('click', function() {
+            stopDemoVideo();
+	    });
+	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn', function(e) {
 			e.stopPropagation();
-			e.preventDefault();
-			console.log('Hello, is this firing?');
-			console.log($(this))
-			if ($('#videoDemoThumb').hasClass('videoPlaying')) {
-	            stopDemoVideo();
-            }
-		});
-	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage, .ProductTinyImageList li', function() {
-	        if ($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
-	            stopDemoVideo();
-	        } else if ($(this).is(playStopBtns) && !$(this).hasClass('videoPlaying')) {
-				playDemoVideo();
-	        } else /* if($(this).is(playStopBtns) || ) || */ {
-	            console.log("NOTHING IS HAPPENING")
-	        }
+			playDemoVideo();
 	    });
 	};
 
