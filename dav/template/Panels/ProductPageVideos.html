@@ -1,6 +1,6 @@
 <style>
 	.MagicThumb-swap:hover, .MagicThumb-swap.mt-active-selector {
-		border: 0;
+		border:0;
 	}
 	#ProductDetails .ProductTinyImageList ul li {
 		border: 3px solid #f0efee !important;
@@ -8,7 +8,7 @@
 		transition: border-color 137ms;
 	}
 	#ProductDetails .ProductTinyImageList ul li:hover {
-		border-color: #6ada78;
+		border-color: #6ada78 !important;
 	}
 </style>
 <script type="text/javascript">
@@ -76,21 +76,18 @@
     }\
     #videoDemoThumb {\
         cursor: pointer;\
-        border: 1px solid #f0efee !important;\
     }\
     #videoDemoThumb .ProdVideoPlayBtn {\
         position: relative;\
         background-color: #39B54A;\
-        width: 56px;\
-        height: 73px;\
+        height: 100%;\
         display: block;\
-        margin: 4px;\
     }\
     #videoDemoThumb .triangle {\
         width: 0px;\
         height: 0px;\
-        left: 17px;\
-        top: 8px;\
+        left: 18px;\
+        top: 12px;\
         position: absolute;\
         border-top: 10px solid transparent !important;\
         border-bottom: 12px solid transparent !important;\
@@ -100,12 +97,13 @@
     }\
     /* Play Video Button */\
     #videoDemoThumb .triangle:after {\
-        content:"Play \A Video";\
+        content:" Play \\A Video";\
         position: absolute;\
-        left: -31px;\
+        left: -29px;\
         top: 18px;\
         color: #fff;\
         text-transform: uppercase;\
+        white-space: pre;\
     }\
     /* Stop Video Button */\
     #videoDemoThumb.videoPlaying .ProdVideoPlayBtn {\
@@ -115,8 +113,8 @@
         border: 10px solid #fff !important;\
     }\
     #videoDemoThumb.videoPlaying .triangle:after {\
-        content:"Stop \A Video";\
-        left: -19px;\
+        content:" Stop \\A Video";\
+        left: -17px;\
     }\
     @media screen and (max-width: 767px) {\
         #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {\
@@ -159,7 +157,7 @@
 	        var ProductTinyImageList = $('.ProductTinyImageList ul');
 	        ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
 	        //ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
-	        $('#videoDemoThumb').html('<div class="ProdVideoPlayBtn"><div class="triangle"></div></div>').css('display','block');
+	        $('#videoDemoThumb').css('display','block');
 	    }).fail(function() {
 		    $('#videoDemoThumb').css('display','none');
 	    });
@@ -167,31 +165,45 @@
 	
 	/*    Play/Stop button click triggering functionality */
 	function playStopButton () {
+		var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
+		var videoContainer = '<div id="productDemoVideo">' +
+			'<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls' + 
+			'width="100%" height="100%" poster="/content/images/dankstop-loading-running-cat-wbg3.gif">' +
+			'<source src="/content/videos/' + productNumber + '.mp4">' +
+			'<source src="/content/videos/' + productNumber + '.ogv" type="video/ogg">' +
+			'<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
+			'</video>' +
+			'</div>';
+        var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
+        var allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
+        function playDemoVideo() {
+			$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
+			$('#productDemoVideo').hide();
+			$(allThumbLinks).addClass('videoPlaying');
+			$(playStopBtns).addClass('videoPlaying');
+			$('#productDemoVideo').show();
+			$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
+        }
+        function stopDemoVideo() {
+			$(allThumbLinks).removeClass('videoPlaying');
+			$(playStopBtns).removeClass('videoPlaying');
+			$('#productDemoVideo').remove();
+        }
+		$('.ProductThumb').on('click', 'a', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			console.log('Hello, is this firing?');
+			console.log($(this))
+			if ($('#videoDemoThumb').hasClass('videoPlaying')) {
+	            stopDemoVideo();
+            }
+		});
 	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage, .ProductTinyImageList li', function() {
-	        var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
-	        allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
 	        if ($(this).hasClass('videoPlaying') || $(this).is(allThumbLinks)) {
-	            $(allThumbLinks).removeClass('videoPlaying');
-	            $(playStopBtn).removeClass('videoPlaying');
-	            $('#productDemoVideo').remove();
-	        } else if ($(this).is(playStopBtn) && !$(this).hasClass('videoPlaying')) {
-	            /* Add video container START */
-	            var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
-	            var videoContainer = '<div id="productDemoVideo">' +
-	                '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/images/dankstop-loading-running-cat-wbg3.gif">' +
-	                '<source src="/content/videos/' + productNumber + '.mp4">' +
-	                '<source src="/content/videos/' + productNumber + '.ogv" type="video/ogg">' +
-	                '<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
-	                '</video>' +
-	                '</div>';
-	            $('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
-	            $('#productDemoVideo').hide();
-	            /* Add video container END */
-	            $(allThumbLinks).addClass('videoPlaying');
-	            $(playStopBtn).addClass('videoPlaying');
-	            $('#productDemoVideo').show();
-	            $('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
-	        } else /* if($(this).is(playStopBtn) || ) || */ {
+	            stopDemoVideo();
+	        } else if ($(this).is(playStopBtns) && !$(this).hasClass('videoPlaying')) {
+				playDemoVideo();
+	        } else /* if($(this).is(playStopBtns) || ) || */ {
 	            console.log("NOTHING IS HAPPENING")
 	        }
 	    });
