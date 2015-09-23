@@ -1,13 +1,22 @@
 <style>
-	.MagicThumb-swap:hover, .MagicThumb-swap.mt-active-selector {
-		border:0;
-	}
 	#ProductDetails .ProductTinyImageList ul li {
+		border: 0 !important;
+	}
+	#ProductDetails .ProductTinyImageList ul li a,
+	#videoDemoThumb .ProdVideoPlayBtn {
+		box-sizing: border-box;
 		border: 3px solid #f0efee !important;
 		border-radius: 3px;
+		-webkit-transition: border-color 137ms;
+		-moz-transition: border-color 137ms;
 		transition: border-color 137ms;
 	}
-	#ProductDetails .ProductTinyImageList ul li:hover {
+	#ProductDetails .ProductTinyImageList ul li a:hover,
+	#videoDemoThumb .ProdVideoPlayBtn:hover {
+		border-color: #6ada78 !important;
+	}
+	#ProductDetails .ProductTinyImageList ul li .mt-active-selector,
+	#ProductDetails .ProductTinyImageList ul li.mt-active-selector .ProdVideoPlayBtn {
 		border-color: #6ada78 !important;
 	}
 </style>
@@ -179,22 +188,26 @@
         function playDemoVideo() {
 			$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 			$('#productDemoVideo').hide();
-			$(allThumbLinks).addClass('videoPlaying');
-			$(playStopBtns).addClass('videoPlaying');
+			$(playStopBtns).addClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').show();
 			$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
         }
         function stopDemoVideo() {
-			$(allThumbLinks).removeClass('videoPlaying');
-			$(playStopBtns).removeClass('videoPlaying');
+			$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').remove();
         }
-	    $('.ProductThumb').on('click', function() {
+	    $('.magictoolbox-li a').on('click', function(e) {
             stopDemoVideo();
 	    });
-	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn', function(e) {
+	    $('#videoDemoThumb, #videoDemoBtn').on('click', function(e) {
 			e.stopPropagation();
-			playDemoVideo();
+			var selectedThumb = $('.magictoolbox-li a.mt-active-selector');
+			$('.magictoolbox-li a').removeClass('mt-active-selector');
+			if ($('#videoDemoThumb.videoPlaying')[0]) {
+	            stopDemoVideo();
+			} else {
+				playDemoVideo();
+			}
 	    });
 	};
 
