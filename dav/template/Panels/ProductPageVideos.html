@@ -1,3 +1,16 @@
+<style>
+	.MagicThumb-swap:hover, .MagicThumb-swap.mt-active-selector {
+		border: 0;
+	}
+	#ProductDetails .ProductTinyImageList ul li {
+		border: 3px solid #f0efee !important;
+		border-radius: 3px;
+		transition: border-color 137ms;
+	}
+	#ProductDetails .ProductTinyImageList ul li:hover {
+		border-color: #6ada78;
+	}
+</style>
 <script type="text/javascript">
 // Product Page Demo Videos
     $('<style type="text/css"> \
@@ -87,7 +100,7 @@
     }\
     /* Play Video Button */\
     #videoDemoThumb .triangle:after {\
-        content:"Play Video";\
+        content:"Play \A Video";\
         position: absolute;\
         left: -31px;\
         top: 18px;\
@@ -102,7 +115,7 @@
         border: 10px solid #fff !important;\
     }\
     #videoDemoThumb.videoPlaying .triangle:after {\
-        content:"Stop Video";\
+        content:"Stop \A Video";\
         left: -19px;\
     }\
     @media screen and (max-width: 767px) {\
@@ -116,42 +129,44 @@
             opacity: 1;\
         }\
     }\
+	/*#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {\
+		display: none;\
+	}*/\
     </style>')
         .appendTo('head');
 
-
-
-    /*     Existance checker function */
-    $.fn.exists = function(callback) {
-        var args = [].slice.call(arguments, 1);
-        if (this.length) {
-            callback.call(this, args);
-        }
-        return this;
-    };
-
-    /*     Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
-    function checkForVideo() {
-        // Legacy -- remove obsolete HasDemoVideo trigger for products which haven't been updated yet
-        $("span:contains('HasDemoVideo')").exists(function() {
-            $(this).closest('.productAttributeRow').hide();
-        });
-        var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
-        $.ajax({
-            url: '/content/videos/' + productNumber + '.mp4',
-            type: 'HEAD',
-        }).success(function() {
-            var ProductThumb = $('.ProductThumb');
-            var ProductTinyImageList = $('.ProductTinyImageList ul');
-            ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
-            ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
-        }).fail(function() {
-            return;
-        });
-    };
-
-    /*    Play/Stop button click triggering functionality */
-    function playStopButton () {
+	/*     Existance checker function */
+	$.fn.exists = function(callback) {
+	    var args = [].slice.call(arguments, 1);
+	    if (this.length) {
+	        callback.call(this, args);
+	    }
+	    return this;
+	};
+	
+	/*     Using ECF to check for Video Option Trigger, hiding it, and adding buttons */
+	function checkForVideo() {
+	    // Legacy -- remove obsolete HasDemoVideo trigger for products which haven't been updated yet
+	    $("span:contains('HasDemoVideo')").exists(function() {
+	        $(this).closest('.productAttributeRow').hide();
+	    });
+	    var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
+	    $.ajax({
+	        url: '/content/videos/' + productNumber + '.mp4',
+	        type: 'HEAD',
+	    }).success(function() {
+	        var ProductThumb = $('.ProductThumb');
+	        var ProductTinyImageList = $('.ProductTinyImageList ul');
+	        ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
+	        //ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
+	        $('#videoDemoThumb').html('<div class="ProdVideoPlayBtn"><div class="triangle"></div></div>').css('display','block');
+	    }).fail(function() {
+		    $('#videoDemoThumb').css('display','none');
+	    });
+	};
+	
+	/*    Play/Stop button click triggering functionality */
+	function playStopButton () {
 	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn, .prodThumbImage, .ProductTinyImageList li', function() {
 	        var playStopBtn = $('#videoDemoThumb, #videoDemoBtn');
 	        allThumbLinks = $('.prodThumbImage, .magictoolbox-li');
@@ -163,7 +178,7 @@
 	            /* Add video container START */
 	            var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
 	            var videoContainer = '<div id="productDemoVideo">' +
-	                '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/images/loading-running-cat-dankstop-whitebg.gif">' +
+	                '<video id="demoVideo" class="video" preload autoplay loop autobuffer muted controls width="100%" height="100%" poster="/content/images/dankstop-loading-running-cat-wbg3.gif">' +
 	                '<source src="/content/videos/' + productNumber + '.mp4">' +
 	                '<source src="/content/videos/' + productNumber + '.ogv" type="video/ogg">' +
 	                '<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
@@ -180,10 +195,14 @@
 	            console.log("NOTHING IS HAPPENING")
 	        }
 	    });
-    };
+	};
 
-    $(document).ready(function() {
-	    checkForVideo();
-	    playStopButton();
-    });
+	function productPageVideoInit() {
+		checkForVideo();
+		playStopButton();
+	}
+
+	$(document).ready(function() {
+		productPageVideoInit();
+	});
 </script>
