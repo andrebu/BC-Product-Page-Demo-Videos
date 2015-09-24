@@ -46,6 +46,31 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
   + When you upload videos, add an .mp4 version, as well as an .ogv version for playback on all browsers
   + Name the videos by the product ID.  The product ID can be found by ... ?  
 
+4. If integrated with MagiScroll, make sure to add `#videoDemoThumb` list item to `Panels/ProductDetails.html`, like this:
+```html
+            <div class="ProductThumb" style="%%GLOBAL_HideProductThumb%%">
+                %%GLOBAL_LightBoxImageJavascript%%
+                %%SNIPPET_ProductThumbImage%%
+                <div class="Loader" style="display:none;"><img src="%%GLOBAL_IMG_PATH%%/loader.png" /></div>
+                
+                <div class="ProductTinyImageList">
+                    <!--<ul>-->
+                    <ul class="MagicScroll" data-options="arrows:outside;scrollOnWheel:false;items:[[200,2],[300,3],[900,6]]">
+                        %%SNIPPET_ProductTinyImages%%
+<!-- LIST ITEM IS HERE -->
+<!-- LIST ITEM IS HERE -->
+<!-- LIST ITEM IS HERE -->
+                        <li id="videoDemoThumb" style="display:none;height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>
+<!-- LIST ITEM IS HERE -->
+<!-- LIST ITEM IS HERE -->
+<!-- LIST ITEM IS HERE -->
+                    </ul>
+                </div>
+                
+                <div style="%%GLOBAL_HideMorePicturesLink%%" class="SeeMorePicturesLink">
+
+```
+
 
 
 ## Using
