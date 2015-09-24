@@ -165,10 +165,12 @@
 	        var ProductThumb = $('.ProductThumb');
 	        var ProductTinyImageList = $('.ProductTinyImageList ul');
 	        ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
-	        //ProductTinyImageList.append('<li id="videoDemoThumb" class="" style="height:%%GLOBAL_ProductTinyBoxHeight%%px; width:%%GLOBAL_ProductTinyBoxWidth%%px;"><div class="ProdVideoPlayBtn"><div class="triangle"></div></div></li>');
 	        $('#videoDemoThumb').css('display','block');
 	    }).fail(function() {
-		    $('#videoDemoThumb').css('display','none');
+		    console.log('This failed!');
+		    MagicScroll.stop();
+		    $('#videoDemoThumb').remove();
+		    MagicScroll.start();
 	    });
 	};
 	
@@ -217,7 +219,7 @@
 		playStopButton();
 	}
 
-	$(document).ready(function() {
+	$(window).load(function() {
 		productPageVideoInit();
 	});
 </script>
