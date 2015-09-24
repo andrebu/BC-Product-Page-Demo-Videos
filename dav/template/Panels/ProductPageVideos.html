@@ -19,6 +19,35 @@
 	#ProductDetails .ProductTinyImageList ul li.mt-active-selector .ProdVideoPlayBtn {
 		border-color: #6ada78 !important;
 	}
+/*
+	#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
+		display: none;
+	}
+*/
+	@media screen and (max-width: 767px) {
+		#ProductDetails .ProductTinyImageList ul li {
+			margin: 0;			
+			width: auto !important;     
+			height: auto !important;
+		}
+		#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
+/* 			display: none; */
+			width: 100% !important;
+			height: 100% !important;
+        }
+		#ProductDetails .ProductTinyImageList ul li a, 
+		#videoDemoThumb .ProdVideoPlayBtn {
+			border: 0;
+			height: 100%;
+			width: 100%;
+		}
+        #videoDemoBtn {
+            display: block;
+            right: 0px;
+            top: 0px;
+            opacity: 1;
+        }
+    }
 </style>
 <script type="text/javascript">
 // Product Page Demo Videos
@@ -125,20 +154,6 @@
         content:" Stop \\A Video";\
         left: -17px;\
     }\
-    @media screen and (max-width: 767px) {\
-        #ProductDetails .ProductTinyImageList ul li#videoDemoThumb {\
-            display: none;\
-        }\
-        #videoDemoBtn {\
-            display: block;\
-            right: 0px;\
-            top: 0px;\
-            opacity: 1;\
-        }\
-    }\
-	/*#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {\
-		display: none;\
-	}*/\
     </style>')
         .appendTo('head');
 
@@ -194,19 +209,20 @@
 			$(playStopBtns).addClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').show();
 			$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
+		    $('.magictoolbox-li a').on('click', function(e) {
+				$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
+	            stopDemoVideo();
+		    });
         }
-        function stopDemoVideo() {
-			$('.previous-thumb').addClass('mt-active-selector');
-			$('.previous-thumb.mt-active-selector').removeClass('previous-thumb');
+	    function stopDemoVideo() {
 			$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 			$('#productDemoVideo').remove();
-        }
-	    $('.magictoolbox-li a').on('click', function(e) {
-            stopDemoVideo();
-	    });
+	    }
 	    $('#videoDemoThumb, #videoDemoBtn').on('click', function(e) {
 			e.stopPropagation();
 			if ($('#videoDemoThumb.videoPlaying')[0]) {
+				$('.previous-thumb').addClass('mt-active-selector');
+				$('.previous-thumb.mt-active-selector').removeClass('previous-thumb');
 	            stopDemoVideo();
 			} else {
 				playDemoVideo();
