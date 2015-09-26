@@ -15,8 +15,8 @@
 		-moz-transition: border-color 137ms;
 		transition: border-color 137ms;
 	}
-	#ProductDetails .ProductTinyImageList ul li a:hover,
-	#videoDemoThumb .ProdVideoPlayBtn:hover {
+	#ProductDetails .ProductTinyImageList ul li a.hovered,
+	#videoDemoThumb .ProdVideoPlayBtn.hovered {
 		border-color: #6ada78 !important;
 	}
 	#ProductDetails .ProductTinyImageList ul li .mt-active-selector,
@@ -194,6 +194,16 @@
 		    MagicScroll.start();
 	    });
 	};
+
+	//thumb link hover
+	$('.magictoolbox-li a').on({
+		mouseenter: function(e) {
+			$(this).addClass('hovered');
+		},
+		mouseleave: function(e) {
+			$(this).removeClass('hovered');
+		}
+	});
 	
 	/*    Play/Stop button click triggering functionality */
 	function playStopButton () {
@@ -206,6 +216,7 @@
 			'<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
 			'</video>' +
 			'</div>';
+			
 	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn',function(e) {
 	        var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 			e.stopPropagation();
