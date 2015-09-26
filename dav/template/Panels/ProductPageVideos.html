@@ -202,6 +202,9 @@
 		},
 		mouseleave: function(e) {
 			$(this).removeClass('hovered');
+		},
+		click: function(e) {
+			$('.magictoolbox-li a').not(this).removeClass('hovered');
 		}
 	});
 	
@@ -237,7 +240,7 @@
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
 			    $('.magictoolbox-li a').on('click', function(e) {
-					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
+					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb hovered');
 		            stopDemoVideo();
 			    });
 	        }
