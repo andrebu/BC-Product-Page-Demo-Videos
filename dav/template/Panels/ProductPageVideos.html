@@ -190,7 +190,7 @@
 	        var ProductTinyImageList = $('.ProductTinyImageList ul');
 	        ProductThumb.append('<span id="videoDemoBtn" class=""><div class="triangle"></div></span>');
 	        $('#videoDemoThumb, #videoDemoBtn').css('display','block');
-	        $('#videoDemoThumb, #videoDemoBtn').css('height', $('.MagicThumb-swap:first').outerHeight())
+	        $('#videoDemoThumb').css('height', $('.MagicThumb-swap:first').outerHeight())
 	    }).fail(function() {
 		    MagicScroll.stop();
 		    $('#videoDemoThumb, #videoDemoBtn').remove();
@@ -225,7 +225,7 @@
 			
 	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn',function(e) {
 	        var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
-			e.stopPropagation();
+			//e.stopPropagation();
 			if ($('#videoDemoThumb.videoPlaying')[0]) {
 				$('.previous-thumb').addClass('mt-active-selector');
 				$('.previous-thumb.mt-active-selector').removeClass('previous-thumb');
@@ -235,19 +235,24 @@
 			}
 	        //var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 	        function playDemoVideo() {
+		        //console.log("Play Video");
 				$('.magictoolbox-li a.mt-active-selector').addClass('previous-thumb');
-				//$('.magictoolbox-li a').removeClass('mt-active-selector');
+				$('.magictoolbox-li a').removeClass('mt-active-selector');
+				$('.magictoolbox-li a').removeClass('hovered');
 				$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 				$('#productDemoVideo').hide();
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
-			    $('.magictoolbox-li a').on('click', function(e) {
+			    $('.magictoolbox-li a').one('click', function(e) {
+			        //console.log("Stop Video 2");
 					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
 		            stopDemoVideo();
+		            return true;
 			    });
 	        }
 		    function stopDemoVideo() {
+		        //console.log("Stop Video");
 				$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').remove();
 		    }
