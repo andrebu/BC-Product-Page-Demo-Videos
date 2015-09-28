@@ -1,6 +1,9 @@
 <style>
 	#ProductDetails .ProductTinyImageList ul li {
 		border: 0 !important;
+		display: block;
+		margin: 0 auto;
+		background: none;
 	}
 	#ProductDetails .ProductTinyImageList .mcs-item a, 
 	#ProductDetails .ProductTinyImageList .mcs-item img {
@@ -23,19 +26,19 @@
 	#ProductDetails .ProductTinyImageList ul li.mt-active-selector .ProdVideoPlayBtn {
 		border-color: #6ada78 !important;
 	}
-/*
-	#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-		display: none;
+	#ProductDetails .ProductTinyImageList ul li .mt-active-selector.previous-thumb {
+		border-color: #f0efee !important;
 	}
-*/
+	.mcs-item::after, .mcs-item > a::after {
+		vertical-align: baseline;
+	}
 	@media screen and (max-width: 767px) {
 		#ProductDetails .ProductTinyImageList ul li {
-			margin: 0;			
+			margin: 0 auto;			
 			width: auto;     
 			height: auto;
 		}
 		#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-/* 			display: none; */
 			width: 100%;
 			height: 100%;
         }
@@ -43,7 +46,7 @@
 		#videoDemoThumb .ProdVideoPlayBtn {
 			border: 0;
 			height: 100%;
-			width: 100%;
+/* 			width: 100%; */
 		}
         #videoDemoBtn {
             display: block;
@@ -233,14 +236,14 @@
 	        //var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 	        function playDemoVideo() {
 				$('.magictoolbox-li a.mt-active-selector').addClass('previous-thumb');
-				$('.magictoolbox-li a').removeClass('mt-active-selector');
+				//$('.magictoolbox-li a').removeClass('mt-active-selector');
 				$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 				$('#productDemoVideo').hide();
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
 			    $('.magictoolbox-li a').on('click', function(e) {
-					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb hovered');
+					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
 		            stopDemoVideo();
 			    });
 	        }
