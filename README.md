@@ -148,7 +148,7 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 * [MDB: Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
 * [Disable fullscreen iphone video](http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video)
 * [Add an OnClick handler with jQuery only once - even if called again](http://stackoverflow.com/questions/9970358/add-an-onclick-handler-with-jquery-only-once-even-if-called-again)
-* []()
+* [How to autoplay HTML5 mp4 video on Android?](http://stackoverflow.com/questions/9075520/how-to-autoplay-html5-mp4-video-on-android)
 * []()
 * []()
 
