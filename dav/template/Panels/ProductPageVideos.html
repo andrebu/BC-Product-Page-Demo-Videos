@@ -211,7 +211,7 @@
 		}
 	});
 	
-	/*    Play/Stop button click triggering functionality */
+	//Play/Stop button click triggering functionality
 	function playStopButton () {
 		var productNumber = $('#productDetailsAddToCartForm').find('input[name=product_id]').attr('value');
 		var videoContainer = '<div id="productDemoVideo">' +
@@ -231,19 +231,17 @@
 		
 		function playStopLogic() {
 			var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
-			//e.stopPropagation();
+			//IF video is playing, stop video
 			if ($('#videoDemoThumb.videoPlaying')[0]) {
 				$('.previous-thumb').addClass('mt-active-selector');
 				$('.previous-thumb.mt-active-selector').removeClass('previous-thumb');
 	            stopDemoVideo();
+	            //ELSE play video
 			} else {
 				playDemoVideo();
 			}
-	        //var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 	        function playDemoVideo() {
-		        console.log("Play Video");
 				$('.magictoolbox-li a.mt-active-selector').addClass('previous-thumb');
-				//$('.magictoolbox-li a').removeClass('mt-active-selector hovered');
 				$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 				$('#productDemoVideo').hide();
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
@@ -252,17 +250,13 @@
 			    $('.magictoolbox-li a').on('click', clickThumbStopVideo);
 	        }
 		    function clickThumbStopVideo() {
-		        console.log("Stop Video 2");
 				$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
 	            stopDemoVideo();
 				$(this).off('click');
-	            //return true;
 		    }
 		    function stopDemoVideo() {
-		        console.log("Stop Video");
 				$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').remove();
-				//$('.magictoolbox-li a').off('click');
 			    $('.magictoolbox-li a').off('click', clickThumbStopVideo);
 		    }
 	    }
