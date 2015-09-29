@@ -142,15 +142,18 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 ##Resources
 
 ###On HTML5 <video> tag for mobile (iOS and Android in particular)
-* [HTML5 <video> element on Android](http://stackoverflow.com/questions/1711078/html5-video-element-on-android)
-* [Chromium Forum - On Android, html5 video autoplay attribute does not work](https://code.google.com/p/chromium/issues/detail?id=159336)
-* [MDN: Media formats supported by the HTML audio and video elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
-* [MDB: Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
-* [Disable fullscreen iphone video](http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video)
-* [Add an OnClick handler with jQuery only once - even if called again](http://stackoverflow.com/questions/9970358/add-an-onclick-handler-with-jquery-only-once-even-if-called-again)
-* [How to autoplay HTML5 mp4 video on Android?](http://stackoverflow.com/questions/9075520/how-to-autoplay-html5-mp4-video-on-android)
-* []()
-* []()
+- [HTML5 <video> element on Android](http://stackoverflow.com/questions/1711078/html5-video-element-on-android)
+- [Chromium Forum - On Android, html5 video autoplay attribute does not work](https://code.google.com/p/chromium/issues/detail?id=159336)
+- [MDN: Media formats supported by the HTML audio and video elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+- [MDB: Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
+- [Disable fullscreen iphone video](http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video)
+- [Add an OnClick handler with jQuery only once - even if called again](http://stackoverflow.com/questions/9970358/add-an-onclick-handler-with-jquery-only-once-even-if-called-again)
+- [How to autoplay HTML5 mp4 video on Android?](http://stackoverflow.com/questions/9075520/how-to-autoplay-html5-mp4-video-on-android)
+- [Making HTML5 Video work on Android phones](http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/)
+- []()
+- []()
+- []()
+- []()
 
 
 
