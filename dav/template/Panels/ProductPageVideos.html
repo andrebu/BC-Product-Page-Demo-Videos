@@ -241,8 +241,7 @@
 	        function playDemoVideo() {
 		        console.log("Play Video");
 				$('.magictoolbox-li a.mt-active-selector').addClass('previous-thumb');
-				$('.magictoolbox-li a').removeClass('mt-active-selector');
-				$('.magictoolbox-li a').removeClass('hovered');
+				$('.magictoolbox-li a').removeClass('mt-active-selector hovered');
 				$('.ProductThumbImage, .MagicToolboxContainer').append(videoContainer);
 				$('#productDemoVideo').hide();
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
@@ -259,7 +258,7 @@
 		        console.log("Stop Video");
 				$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').remove();
-				$('.ProductThumb').off('click', '#videoDemoThumb, #videoDemoBtn');
+				$('.magictoolbox-li a').off('click');
 		    }
 	    });
 	};
