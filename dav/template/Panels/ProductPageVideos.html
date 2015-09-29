@@ -222,8 +222,11 @@
 			'<p>Your browser does not support this video.  Please upgrade your browser!</p>' +
 			'</video>' +
 			'</div>';
-			
+		
+		//FIX for mobile devices where "hovered" is automatically added to fthe first ".m(agic)t(humb)-active-selector"
 		$('#ProductDetails .ProductTinyImageList  ul li .mt-active-selector').removeClass('hovered');
+		
+		//Define playStopBtns onClick functonality
 		$('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn',function(e) {
 			var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 			//e.stopPropagation();
@@ -236,7 +239,7 @@
 			}
 	        //var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 	        function playDemoVideo() {
-		        //console.log("Play Video");
+		        console.log("Play Video");
 				$('.magictoolbox-li a.mt-active-selector').addClass('previous-thumb');
 				$('.magictoolbox-li a').removeClass('mt-active-selector');
 				$('.magictoolbox-li a').removeClass('hovered');
@@ -245,17 +248,18 @@
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
-			    $('.magictoolbox-li a').one('click', function(e) {
-			        //console.log("Stop Video 2");
+			    $('.magictoolbox-li a').on('click', function(e) {
+			        console.log("Stop Video 2");
 					$('.MagicThumb-swap.previous-thumb').removeClass('previous-thumb');
 		            stopDemoVideo();
 		            //return true;
 			    });
 	        }
 		    function stopDemoVideo() {
-		        //console.log("Stop Video");
+		        console.log("Stop Video");
 				$(playStopBtns).removeClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').remove();
+				$('.ProductThumb').off('click', '#videoDemoThumb, #videoDemoBtn');
 		    }
 	    });
 	};
