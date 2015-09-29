@@ -251,6 +251,8 @@
 				$(playStopBtns).addClass('videoPlaying mt-active-selector');
 				$('#productDemoVideo').show();
 				$('#productDemoVideo').css('height', $('.ProductThumbImage').height() + 'px');
+				var video = document.getElementById('demoVideo');
+				video.play();
 			    $('.magictoolbox-li a').on('click', clickThumbStopVideo);
 	        }
 		    function clickThumbStopVideo() {
