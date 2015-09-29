@@ -223,8 +223,9 @@
 			'</video>' +
 			'</div>';
 			
-	    $('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn',function(e) {
-	        var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
+		$('#ProductDetails .ProductTinyImageList  ul li .mt-active-selector').removeClass('hovered');
+		$('.ProductThumb').on('click', '#videoDemoThumb, #videoDemoBtn',function(e) {
+			var playStopBtns = $('#videoDemoThumb, #videoDemoBtn');
 			//e.stopPropagation();
 			if ($('#videoDemoThumb.videoPlaying')[0]) {
 				$('.previous-thumb').addClass('mt-active-selector');
