@@ -96,6 +96,22 @@ To turn off the lightbox onClick logic and to make the thumbnails change on clic
 * [BigCommerce Welcoming Age Gate](https://github.com/iamandrebulatov/BC-Welcoming-Age-Gate)
 * [BigCommerce 360 Product View](https://github.com/iamandrebulatov/BC-360-Product-View)
 * [BigCommerce ThumbScroll](https://github.com/iamandrebulatov/BC-ThumbScroll)
+* [BigCommerce Product Accessory Options Choice Upsell](https://github.com/iamandrebulatov/BC-Product-Accessory-Options-Choice-Upsell)
+* [BigCommerce Navigation Dynamic List Item Visual Cues](https://github.com/iamandrebulatov/BC-Nav-Dynamic-List-Item-Visual-Cues)
+* [BigCommerce Contact Form](https://github.com/iamandrebulatov/BC-Contact-Form)
+* [BigCommerce Hot Item Product Counter](https://github.com/iamandrebulatov/BC-Hot-Item-Product-Counter)
+* [BigCommerce Shipping Time Dynamic Feature](https://github.com/iamandrebulatov/BC-Product-Shipping-Time-Dynamic)
+* [BigCommerce Category Page Sold Out Products Reorder](https://github.com/iamandrebulatov/BC-Category-Push-Sold-Out-Products-to-Bottom)
+* [BigCommerce Wholesale Price and Item Hide and Other Features](https://github.com/iamandrebulatov/BC-Wholesale-Price-and-Item-Hide)
+* [BigCommerce Sharing Savings Discount](https://github.com/iamandrebulatov/BC-Sharing-Savings-Discount)
+* [BigCommerce Tooltips](https://github.com/iamandrebulatov/BC-Tooltips)
+* [BigCommerce Order Shipment Tracking APIs ofr USPS, UPS and FedEx](https://github.com/iamandrebulatov/BC-Order-Shipping-Tracking)
+* [BigCommerce Misc Projects](https://github.com/iamandrebulatov/BigCommerce-Projects) 
+  * Site Navigation AJAXification
+  * List of SEO enhancements and improvements
+  * Product Images Swipeable
+  * Contact Form Overhaul and AJAXification
+  * Cart Item Removal AJAXification
 
 
 
@@ -126,14 +142,15 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 ##Resources
 
 ###On HTML5 <video> tag for mobile (iOS and Android in particular)
-1.  On using javaScript play() to make it work on Android - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
-2.  Similar to above #1. above. https://code.google.com/p/chromium/issues/detail?id=159336
-3.  On how autoplay does not work on Android Chrome - https://code.google.com/p/chromium/issues/detail?id=159336
-4.  Media formats supported by the HTML audio and video elements - https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats - mozilla.org
-5.  Creating a cross-browser video player - https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player - mozilla.org
-6.  A solution proposed for iOS to fix so that playing video does not enter full screen mode but rather plays inline (in the end, this proposed code does not work reliably, or at all) - http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video
-7.  Similar to #6 above but for Android.  Suggests using custom JS for autoplay function and also some <video> tag markup standards that should allow video to play on ANdroid along iwth other browsers like Firefox and Safari. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
-8.  Similar to #6 and #7 above as in this thread, the ttempt was to make videos play inline rather than be forced into fullscreen mode.  The main suggestion is to use "webkit-playinline," but as elegant as this soltion is, it does not work. - http://stackoverflow.com/questions/1711078/html5-video-element-on-android
+* [HTML5 <video> element on Android](http://stackoverflow.com/questions/1711078/html5-video-element-on-android)
+* [Chromium Forum - On Android, html5 video autoplay attribute does not work](https://code.google.com/p/chromium/issues/detail?id=159336)
+* [MDN: Media formats supported by the HTML audio and video elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+* [MDB: Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
+* [Disable fullscreen iphone video](http://stackoverflow.com/questions/19521667/disable-fullscreen-iphone-video)
+* [Add an OnClick handler with jQuery only once - even if called again](http://stackoverflow.com/questions/9970358/add-an-onclick-handler-with-jquery-only-once-even-if-called-again)
+* []()
+* []()
+* []()
 
 
 
