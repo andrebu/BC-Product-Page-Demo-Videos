@@ -4,10 +4,10 @@
 	}
 	#ProductDetails .ProductTinyImageList ul li {
 		border: 0 !important;
-		display: block;
 		margin: 0 auto;
 		background: none;
-		display: inline-block;
+		display: block;
+/* 		display: inline-block; */
 	}
 	#ProductDetails .ProductTinyImageList .mcs-item a, 
 	#ProductDetails .ProductTinyImageList .mcs-item img {
@@ -43,11 +43,11 @@
 	@media screen and (max-width: 767px) {
 		#ProductDetails .ProductTinyImageList ul li {
 			margin: 0 auto;			
-			width: auto;     
+/* 			width: auto;      */
 			height: auto;
 		}
 		#ProductDetails .ProductTinyImageList ul li#videoDemoThumb {
-			width: 100%;
+/* 			width: 100%; */
 			height: 100%;
         }
 		#ProductDetails .ProductTinyImageList ul li a, 
@@ -131,6 +131,8 @@
     }\
     #videoDemoThumb {\
         cursor: pointer;\
+		height:%%GLOBAL_ProductTinyBoxHeight%%px;\
+		width:%%GLOBAL_ProductTinyBoxWidth%%px;\
     }\
     #videoDemoThumb .ProdVideoPlayBtn {\
         position: relative;\
@@ -173,6 +175,9 @@
     }\
     </style>')
         .appendTo('head');
+    //#videoDemoThumb {\
+		//display:none !important;\
+
 
 	/*     Existance checker function */
 	$.fn.exists = function(callback) {
