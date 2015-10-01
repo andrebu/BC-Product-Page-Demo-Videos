@@ -6,8 +6,17 @@
 		border: 0 !important;
 		margin: 0 auto;
 		background: none;
-		display: block;
-/* 		display: inline-block; */
+/* 		display: block; */
+		display: inline-block;
+		vertical-align: middle;
+	}
+	#ProductDetails .ProductTinyImageList .mcs-item { 
+		vertical-align: middle;
+	}
+	#ProductDetails .ProductTinyImageList .mcs-item::after, 
+	#ProductDetails .ProductTinyImageList .mcs-item > a::after {
+		vertical-align: baseline;
+		display: inline;
 	}
 	#ProductDetails .ProductTinyImageList .mcs-item a, 
 	#ProductDetails .ProductTinyImageList .mcs-item img {
@@ -32,9 +41,6 @@
 	}
 	#ProductDetails .ProductTinyImageList ul li .mt-active-selector.previous-thumb {
 		border-color: #f0efee !important;
-	}
-	.mcs-item::after, .mcs-item > a::after {
-		vertical-align: baseline;
 	}
 	#ProductDetails .ProductTinyImageList .MagicScroll-horizontal button.mcs-button.mcs-disabled,
 	#ProductDetails .ProductTinyImageList .MagicScroll-horizontal button.mcs-button.mcs-button-arrow:disabled {
