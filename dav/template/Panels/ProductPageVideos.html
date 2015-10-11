@@ -25,22 +25,23 @@
 	#ProductDetails .ProductTinyImageList ul li a,
 	#videoDemoThumb .ProdVideoPlayBtn {
 		box-sizing: border-box;
-		border: 3px solid #f0efee !important;
+		border: 3px solid #f0efee;
 		border-radius: 3px;
-		-webkit-transition: border-color 137ms;
-		-moz-transition: border-color 137ms;
-		transition: border-color 137ms;
+		-webkit-transition: border-color 137ms ease;
+		-moz-transition: border-color 137ms ease;
+		-o-transition: border-color 137ms ease;
+		transition: border-color 137ms ease;
 	}
-	#ProductDetails .ProductTinyImageList ul li a.hovered,
+	#ProductDetails .ProductTinyImageList ul li .hovered,
 	#videoDemoThumb .ProdVideoPlayBtn.hovered {
-		border-color: #6ada78 !important;
+		border-color: #999;
 	}
 	#ProductDetails .ProductTinyImageList ul li .mt-active-selector,
 	#ProductDetails .ProductTinyImageList ul li.mt-active-selector .ProdVideoPlayBtn {
-		border-color: #6ada78 !important;
+		border-color: #6ada78;
 	}
 	#ProductDetails .ProductTinyImageList ul li .mt-active-selector.previous-thumb {
-		border-color: #f0efee !important;
+		border-color: #f0efee;
 	}
 	#ProductDetails .ProductTinyImageList .MagicScroll-horizontal button.mcs-button.mcs-disabled,
 	#ProductDetails .ProductTinyImageList .MagicScroll-horizontal button.mcs-button.mcs-button-arrow:disabled {
